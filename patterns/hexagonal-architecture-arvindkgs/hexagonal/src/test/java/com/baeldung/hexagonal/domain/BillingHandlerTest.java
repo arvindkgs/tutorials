@@ -16,6 +16,7 @@ public class BillingHandlerTest {
         Order singleOrder = new Order();
         singleOrder.getItems()
             .add(new Item(100, 1));
+        
         Assert.assertEquals(100, billing.pay(singleOrder));
     }
 
