@@ -18,11 +18,11 @@ public class StripePaymentServiceimpl implements PaymentService {
 
     @Override
     public int debit(Integer amount) throws PaymentException, StripeException {
-        Map params = new HashMap<String, Object>();
+        Map<String, Object> params = new HashMap<>();
         params.put("amount", amount);
         PaymentIntent debitObject = PaymentIntent.create(params);
         return debitObject.getAmount()
-            .intValue();
+          .intValue();
     }
 
 }

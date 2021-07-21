@@ -5,6 +5,7 @@ import com.baeldung.hexagonal.service.PaymentService;
 import com.stripe.exception.StripeException;
 
 public class BillingHandler {
+    
     private final PaymentService paymentService;
 
     public BillingHandler(PaymentService paymentService) {
