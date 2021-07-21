@@ -12,16 +12,17 @@ import com.stripe.model.PaymentIntent;
 
 public class StripePaymentServiceimpl implements PaymentService {
 
-	StripePaymentServiceimpl(@Value("${stripe.secret}") String stripeApiKey) {
-		Stripe.apiKey = stripeApiKey;
-	}
+    StripePaymentServiceimpl(@Value("${stripe.secret}") String stripeApiKey) {
+        Stripe.apiKey = stripeApiKey;
+    }
 
-	@Override
-	public int debit(Integer amount) throws PaymentException, StripeException {
-		Map params = new HashMap<String, Object>();
-		params.put("amount", amount);
-		PaymentIntent debitObject = PaymentIntent.create(params);
-		return debitObject.getAmount().intValue();
-	}
+    @Override
+    public int debit(Integer amount) throws PaymentException, StripeException {
+        Map params = new HashMap<String, Object>();
+        params.put("amount", amount);
+        PaymentIntent debitObject = PaymentIntent.create(params);
+        return debitObject.getAmount()
+            .intValue();
+    }
 
 }
