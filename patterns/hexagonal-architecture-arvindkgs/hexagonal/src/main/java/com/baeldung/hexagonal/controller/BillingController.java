@@ -17,7 +17,7 @@ public class BillingController {
         this.billingHandler = billingHandler;
     }
 
-    @PostMapping
+    @PostMapping(path = "/pay")
     public ResponseEntity<Integer> pay(@RequestBody Order order) throws PaymentException, StripeException {
         return ResponseEntity.ok(billingHandler.pay(order));
     }
